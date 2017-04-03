@@ -42,5 +42,9 @@ private:
 	Graphics gfx;
 	/********************************/
 	/*  User Variables              */
+	double x = 400;
+	double y = 300;
+	int dx = 0;
+	int dy = 0;
 	/********************************/
 };

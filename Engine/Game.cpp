@@ -38,8 +38,51 @@ void Game::Go()
 
 void Game::UpdateModel()
 {
+	if (wnd.kbd.KeyIsPressed(VK_UP)) {
+			dy-=2;
+	}
+	if (wnd.kbd.KeyIsPressed(VK_DOWN)) {
+			dy+=2;
+	}
+	if (wnd.kbd.KeyIsPressed(VK_RIGHT)) {
+			dx+=2;
+	}
+	if (wnd.kbd.KeyIsPressed(VK_LEFT)) {
+			dx-=2;
+	}
+	if (wnd.kbd.KeyIsPressed(VK_SHIFT)) {
+		dx = 0;
+		dy = 0;
+	}
+	
+	
+	
+
+	x += dx;
+	y += dy;
+
+	if (x < 1 || x>789) {
+		dx *= -1;
+		x += dx;
+	}
+	if (y < 1 || y>589)
+	{
+		dy *= -1;
+		y += dy;
+	}
+
+
+	dx *= 0.9999;
+	dy *= 0.9999;
+
+
 }
 
 void Game::ComposeFrame()
 {
+	for (int i = 0; i < 10; i++) {
+		for (int j = 0; j < 10; j++) {
+			gfx.PutPixel(x + i, y + j, 2 * j + 3 , j - 8*i+y , i + 8*j+x);
+		}
+	}
 }
