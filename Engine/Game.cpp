@@ -67,6 +67,34 @@ void Game::UpdateModel()
 		dudeX = ClampScreenX(dudeX, dudeWidth);
 		dudeY = ClampScreenY(dudeY, dudeHeight);
 
+		if (poo0X + poo0dX + pooWidth > gfx.ScreenWidth || poo0X + poo0dX < 1) {
+			poo0dX *= -1;
+		}
+		if (poo0Y + poo0dY + pooHeight > gfx.ScreenHeight || poo0Y + poo0dY < 1) {
+			poo0dY *= -1;
+		}
+		if (poo1X + poo1dX + pooWidth > gfx.ScreenWidth || poo1X + poo1dX < 1) {
+			poo1dX *= -1;
+		}
+		if (poo1Y + poo1dY + pooHeight > gfx.ScreenHeight || poo1Y + poo1dY < 1) {
+			poo1dY *= -1;
+		}
+		if (poo2X + poo2dX + pooWidth > gfx.ScreenWidth || poo2X + poo2dX < 1) {
+			poo2dX *= -1;
+		}
+		if (poo2Y + poo2dY + pooHeight > gfx.ScreenHeight || poo2Y + poo2dY < 1) {
+			poo2dY *= -1;
+		}
+
+
+		poo0X += poo0dX;
+		poo0Y += poo0dY;
+		poo1X += poo1dX;
+		poo1Y += poo1dY;
+		poo2X += poo2dX;
+		poo2Y += poo2dY;
+
+
 		if (IsColliding(dudeX, dudeY, dudeWidth, dudeHeight, poo0X, poo0Y, pooWidth, pooHeight)) {
 			poo0IsEaten = true;
 		}
